@@ -5,4 +5,13 @@ export interface IrobotState {
     disToWall: number;
 }
 
-export const DirectionEnum = Object.freeze({ FORWARD: '0', LEFT: '1', RIGHT: '2', BACK: '3', STOP: '4',  AUTO: '5' })
+// export const DirectionEnum = Object.freeze({ STOP: 'stop', FORWARD: 'forward', LEFT: 'left', RIGHT: 'right', BACK: 'back', AUTO: '5' })
+
+export const enum cmdEnum {
+    STOP ='stop',
+    FORWARD ='forward',
+    LEFT= 'left',
+    RIGHT= 'right',
+    BACK= 'back',
+    AUTO= '5' 
+}

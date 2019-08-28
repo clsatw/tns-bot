@@ -1,12 +1,12 @@
-import { ItemEventData } from "tns-core-modules/ui/list-view"
+// import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { of, Subject, Observable, merge, combineLatest, NEVER } from 'rxjs';
 import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, switchMap, tap, filter, withLatestFrom } from 'rxjs/operators';
-import { IrobotState, DirectionEnum } from "./models/robotState";
+import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
 import { MqttProvider } from './providers/mqtt/mqtt';
-// import * as dialogs from "tns-core-modules/ui/dialogs";
+
 
 @Component({
     selector: "Home",
@@ -18,12 +18,13 @@ export class HomeComponent implements OnInit {
 
     errorMessage = 'Iot Self-Driving Car';
     initialRobotState: IrobotState = {
-        direction: DirectionEnum.STOP,
+        direction: cmdEnum.STOP,
         speed: 50,
         disToWall: 10,
         autoPilot: false
     }
 
+    btnS$ = new Subject<TouchGestureEventData>();
     btnF$ = new Subject<TouchGestureEventData>();
     btnL$ = new Subject<TouchGestureEventData>();
     btnR$ = new Subject<TouchGestureEventData>();
@@ -34,28 +35,33 @@ export class HomeComponent implements OnInit {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(direction: string) {
-        this.mqtt.callArest(direction)
+    moveCar(s: IrobotState):any {
+        return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
             .subscribe(
-                () => { console.log(direction); }
+                () => { console.log(s.direction); }
                 ,
                 () => alert('cmd failed')
             )
     }
+
     robotCommands$ = merge(
+        this.btnS$.pipe(                   
+            map(e =>
+                ({ direction: cmdEnum.STOP })
+            )),
         this.btnF$.pipe(
             // tap(e => console.log(e.action)),           
             map(e =>
-                e.action === 'up' ? ({ direction: DirectionEnum.STOP }) : ({ direction: DirectionEnum.FORWARD })
+                e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.FORWARD })
             )),
         this.btnB$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: DirectionEnum.STOP }) : ({ direction: DirectionEnum.BACK })
+            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.BACK })
         )),
         this.btnL$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: DirectionEnum.STOP }) : ({ direction: DirectionEnum.LEFT })
+            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.LEFT })
         )),
         this.btnR$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: DirectionEnum.STOP }) : ({ direction: DirectionEnum.RIGHT })
+            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.RIGHT })
         )),
         this.inputSpeed$.pipe(
             // tap(n => console.log('speed: ' + n))),
@@ -87,15 +93,13 @@ export class HomeComponent implements OnInit {
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
+            /*
             tap((s: IrobotState) => {
-                if (s.autoPilot === true) {
-                    this.moveCar('5');
-                }
-                else {
-                    //this.mqtt.callArestWithParam('setSpeed', s.speed, s.disToWall, '30');
-                    this.moveCar(s.direction);
-                }
+                this.moveCar(s);
             })
+            */
+           // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
+           exhaustMap((s)=>this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {

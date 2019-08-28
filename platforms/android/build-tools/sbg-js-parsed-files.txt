@@ -1,0 +1,5 @@
+E:\var\www\tns-robcar\platforms\android\app\src\main\assets\app\0.js
+E:\var\www\tns-robcar\platforms\android\app\src\main\assets\app\bundle.js
+E:\var\www\tns-robcar\platforms\android\app\src\main\assets\app\runtime.js
+E:\var\www\tns-robcar\platforms\android\app\src\main\assets\app\tns-java-classes.js
+E:\var\www\tns-robcar\platforms\android\app\src\main\assets\app\vendor.js

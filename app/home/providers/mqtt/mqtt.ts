@@ -4,17 +4,19 @@ import { tap, map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Http } from '@angular/http';
 import { Config } from '../config';
+
 @Injectable()
 export class MqttProvider {
  
   constructor(private http: Http) {
   }
 
-  callArest(fnName: string): Observable<any> {
+  callArest(fnName: string, speed: String) : Observable<any> {
     console.log('fnName: ', fnName);
     // this.msg = fnName; // for css
-    // return this.http.get(`${this.url}/${this.device_id}/${fnName}?key=${this.apiKey}`)
-    return this.http.get(`${Config.apiUrl}update?api_key=${Config.apiKey}&field1=${fnName}`)
+    // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
+    return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${speed}`)
+    // return this.http.get(`${Config.apiUrl}update?api_key=${Config.apiKey}&field1=${fnName}`)
       .pipe(
         // tap(console.log),
         catchError(this.handleError)
