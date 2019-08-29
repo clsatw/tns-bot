@@ -13,5 +13,5 @@ export const enum cmdEnum {
     LEFT= 'left',
     RIGHT= 'right',
     BACK= 'back',
-    AUTO= '5' 
+    AUTO= 'autoPilot' 
 }

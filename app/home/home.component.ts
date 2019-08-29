@@ -1,7 +1,7 @@
 // import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { of, Subject, Observable, merge, combineLatest, NEVER } from 'rxjs';
-import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, switchMap, tap, filter, withLatestFrom } from 'rxjs/operators';
+import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, switchMap, tap, filter, withLatestFrom, last, takeLast, debounce, throttleTime, take, debounceTime } from 'rxjs/operators';
 import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
         disToWall: 10,
         autoPilot: false
     }
-
-    btnS$ = new Subject<TouchGestureEventData>();
+    // last event is always up, so this is filtered by distinctUntilChange operator.
+    // btnS$ = new Subject<TouchGestureEventData>();
     btnF$ = new Subject<TouchGestureEventData>();
     btnL$ = new Subject<TouchGestureEventData>();
     btnR$ = new Subject<TouchGestureEventData>();
@@ -35,20 +35,16 @@ export class HomeComponent implements OnInit {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(s: IrobotState):any {
+    moveCar(s: IrobotState): any {
         return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
             .subscribe(
-                () => { console.log(s.direction); }
-                ,
-                () => alert('cmd failed')
+                () => { console.log('arest ok') },
+                (err) => alert(err)
             )
     }
-
+    // when tap on button, there a down, many move... an up events.
     robotCommands$ = merge(
-        this.btnS$.pipe(                   
-            map(e =>
-                ({ direction: cmdEnum.STOP })
-            )),
+        // this.btnS$.pipe( map(e => ({ direction: cmdEnum.STOP }))),
         this.btnF$.pipe(
             // tap(e => console.log(e.action)),           
             map(e =>
@@ -63,21 +59,25 @@ export class HomeComponent implements OnInit {
         this.btnR$.pipe(map(e =>
             e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.RIGHT })
         )),
+        // car speed (0-255)
         this.inputSpeed$.pipe(
+            //tap(console.log),
             // tap(n => console.log('speed: ' + n))),
             filter(n => n !== undefined),
             inputToValue(),
-            map(n => ({ speed: n }))),
+            map(n => ({ speed: n }))
+        ),
+
         this.disToWall$.pipe(inputToValue(), map(n => ({ disToWall: n }))),
         this.autoPilot$.pipe(
             // tap(n=>console.log(n.action)),
             map(n => ({ autoPilot: n })))
-
     )
+
     robotState$: Observable<IrobotState> = this.robotCommands$
         .pipe(
             startWith(this.initialRobotState),
-            // touch event keeps fired as long as not releasing.
+            // ** touch event 'move' keeps being fired as long as not releasing.
             distinctUntilChanged(),
             scan((state: IrobotState, command) => {
                 return ({ ...state, ...command });
@@ -89,21 +89,28 @@ export class HomeComponent implements OnInit {
     direction$ = this.robotState$.pipe(selectDistinctState('direction'));
     navMode$ = this.robotState$.pipe(selectDistinctState('autoPilot'));
 
-    navigation$ = combineLatest(this.direction$, this.navMode$)
+    // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
+    speed$: Observable<any> = this.robotState$.pipe(selectDistinctState('speed')).pipe(debounceTime(1000));
+
+    navigation$ = combineLatest(this.direction$, this.navMode$, this.speed$)
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
-            /*
+
             tap((s: IrobotState) => {
+                // console.log(s.direction)
                 this.moveCar(s);
             })
-            */
-           // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
-           exhaustMap((s)=>this.moveCar(s))
+
+            // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
+            //tap( console.log('s.direction') ),
+            //exhaustMap((s)=>this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {
-        //this.robotState$.subscribe(console.log);
+        // this.robotState$.subscribe(console.log);
+        // this.direction$.subscribe(console.log);       
+        // ** this console.log shows everything!
         this.navigation$.subscribe(console.log);
     }
 

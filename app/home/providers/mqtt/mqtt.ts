@@ -12,10 +12,11 @@ export class MqttProvider {
   }
 
   callArest(fnName: string, speed: String) : Observable<any> {
-    console.log('fnName: ', fnName);
+    const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${speed}`;
+    console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
-    return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${speed}`)
+    return this.http.get(url)
     // return this.http.get(`${Config.apiUrl}update?api_key=${Config.apiKey}&field1=${fnName}`)
       .pipe(
         // tap(console.log),
@@ -35,8 +36,9 @@ export class MqttProvider {
   }
 
   private handleError(error: Response) {
-    console.log(JSON.stringify(error.json()));
-    return Observable.throw(error);
+    console.log('Handling error locally and rethrowing it...', JSON.stringify(error.json()));
+    //return Observable.throw(error);
+    return throwError(error);
   }
 
 }
