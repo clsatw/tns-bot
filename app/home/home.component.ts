@@ -1,15 +1,16 @@
 // import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
-import { of, Subject, Observable, merge, combineLatest, NEVER } from 'rxjs';
-import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, switchMap, tap, filter, withLatestFrom, last, takeLast, debounce, throttleTime, take, debounceTime } from 'rxjs/operators';
+import { Subject, Observable, merge, combineLatest, NEVER } from 'rxjs';
+import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime } from 'rxjs/operators';
 import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
 import { MqttProvider } from './providers/mqtt/mqtt';
-
+// import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
 
 @Component({
     selector: "Home",
+    providers: [MqttProvider],
     moduleId: module.id,
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.css"]
@@ -35,11 +36,11 @@ export class HomeComponent implements OnInit {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(s: IrobotState): any {
-        return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
+    moveCar(s): any {
+        this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
             .subscribe(
                 () => { console.log('arest ok') },
-                (err) => alert(err)
+                (err) => { alert(err) }
             )
     }
     // when tap on button, there a down, many move... an up events.
@@ -96,22 +97,22 @@ export class HomeComponent implements OnInit {
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
-
+            /*            
             tap((s: IrobotState) => {
                 // console.log(s.direction)
                 this.moveCar(s);
-            })
-
+            })            
+            */
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
-            //tap( console.log('s.direction') ),
-            //exhaustMap((s)=>this.moveCar(s))
+            // tap( console.log('s.direction') ),
+            exhaustMap((s: IrobotState) => this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {
         // this.robotState$.subscribe(console.log);
         // this.direction$.subscribe(console.log);       
         // ** this console.log shows everything!
-        this.navigation$.subscribe(console.log);
+        this.navigation$.subscribe(console.log)
     }
 
     ngOnInit(): void {

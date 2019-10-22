@@ -4,7 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-import { NativeScriptHttpModule } from 'nativescript-angular/http';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { MqttProvider } from './providers/mqtt/mqtt';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { MqttProvider } from './providers/mqtt/mqtt';
         NativeScriptCommonModule,
         HomeRoutingModule,
         NativeScriptFormsModule,
-        NativeScriptHttpModule,
+        NativeScriptHttpClientModule,
     ],
     declarations: [
         HomeComponent

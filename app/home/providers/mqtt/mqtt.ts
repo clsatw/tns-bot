@@ -1,27 +1,32 @@
+/* This decorator denotes this class as a candidate for Angular’s dependency injection mechanism. For now just think of adding
+** the @Injectable as a required convention for all services that you write
+*/
 import { Injectable } from '@angular/core';
 
 import { tap, map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Config } from '../config';
 
 @Injectable()
 export class MqttProvider {
- 
-  constructor(private http: Http) {
+
+  constructor(private http: HttpClient) {
   }
 
-  callArest(fnName: string, speed: String) : Observable<any> {
+  callArest(fnName: string, speed: String): Observable<any> {
     const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${speed}`;
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
-    return this.http.get(url)
+    return this.http.get(url).pipe(
+      catchError(this.handleError)
+    );
     // return this.http.get(`${Config.apiUrl}update?api_key=${Config.apiKey}&field1=${fnName}`)
-      .pipe(
-        // tap(console.log),
-        catchError(this.handleError)
-      )
+    //.pipe(
+    // tap(console.log),
+    //catchError(this.handleError)
+    //)
   }
 
   callArestWithParam(fnName: string, speed: number, distToWall: number, delay: string) {
