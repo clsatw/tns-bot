@@ -1,11 +1,12 @@
 // import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
-import { Subject, Observable, merge, combineLatest, NEVER } from 'rxjs';
-import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime } from 'rxjs/operators';
+import { Subject, Observable, merge, combineLatest } from 'rxjs';
+import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime, throttleTime, skipWhile, takeWhile, switchMap } from 'rxjs/operators';
 import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
 import { MqttProvider } from './providers/mqtt/mqtt';
+// import { getEventOrGestureName } from "tns-core-modules/ui/page/page";
 // import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
 
 @Component({
@@ -16,7 +17,6 @@ import { MqttProvider } from './providers/mqtt/mqtt';
     styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-
     errorMessage = 'Iot Self-Driving Car';
     initialRobotState: IrobotState = {
         direction: cmdEnum.STOP,
@@ -36,30 +36,32 @@ export class HomeComponent implements OnInit {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(s): any {
-        this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
-            .subscribe(
-                () => { console.log('arest ok') },
-                (err) => { alert(err) }
-            )
+    moveCar(s):any {
+        // if no return here, it will fire an error at runtime. don't know why?
+        return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
+           
     }
     // when tap on button, there a down, many move... an up events.
     robotCommands$ = merge(
         // this.btnS$.pipe( map(e => ({ direction: cmdEnum.STOP }))),
         this.btnF$.pipe(
-            // tap(e => console.log(e.action)),           
-            map(e =>
-                e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.FORWARD })
+            // action: move, cancel down, up.
+            filter(e => e.action !== 'move'),
+            map((e: TouchGestureEventData) => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.FORWARD })
             )),
-        this.btnB$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.BACK })
-        )),
-        this.btnL$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.LEFT })
-        )),
-        this.btnR$.pipe(map(e =>
-            e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.RIGHT })
-        )),
+
+        this.btnB$.pipe(
+            filter(e => e.action !== 'move'),
+            map((e: TouchGestureEventData) => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.BACK })
+            )),
+        this.btnL$.pipe(
+            filter(e => e.action !== 'move'),
+            map(e => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.LEFT })
+            )),
+        this.btnR$.pipe(
+            filter(e => e.action !== 'move'),
+            map(e => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.RIGHT })
+            )),
         // car speed (0-255)
         this.inputSpeed$.pipe(
             //tap(console.log),
@@ -73,16 +75,19 @@ export class HomeComponent implements OnInit {
         this.autoPilot$.pipe(
             // tap(n=>console.log(n.action)),
             map(n => ({ autoPilot: n })))
+    ).pipe(
+        // debounceTime(500)
     )
 
     robotState$: Observable<IrobotState> = this.robotCommands$
         .pipe(
             startWith(this.initialRobotState),
             // ** touch event 'move' keeps being fired as long as not releasing.
-            distinctUntilChanged(),
+
             scan((state: IrobotState, command) => {
                 return ({ ...state, ...command });
             }),
+            // distinctUntilChanged(),
             // distinctUntilChanged((prev: IrobotState, curr: IrobotState) => prev.direction === curr.direction),
             shareReplay(1)
         );
@@ -105,7 +110,7 @@ export class HomeComponent implements OnInit {
             */
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
-            exhaustMap((s: IrobotState) => this.moveCar(s))
+            switchMap((s: IrobotState) => this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {
@@ -116,6 +121,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this.robotCommands$.subscribe(n => console.log(n));
+        // this.robotCommands$.subscribe(console.log);        
+        // this.robotState$.subscribe(console.log)
     }
 }
