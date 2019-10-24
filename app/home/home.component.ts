@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     robotCommands$ = merge(
         // this.btnS$.pipe( map(e => ({ direction: cmdEnum.STOP }))),
         this.btnF$.pipe(
-            // action: move, cancel down, up.
+            // e.action: move, cancel down, up.
             filter(e => e.action !== 'move'),
             map((e: TouchGestureEventData) => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.FORWARD })
             )),
@@ -117,11 +117,16 @@ export class HomeComponent implements OnInit {
         // this.robotState$.subscribe(console.log);
         // this.direction$.subscribe(console.log);       
         // ** this console.log shows everything!
-        this.navigation$.subscribe(console.log)
+        this.navigation$.subscribe((res: any)=>{
+            if (res.connected===false){
+                // console.dir(res);
+                alert(res.message+res.id);
+            }
+        })
     }
 
     ngOnInit(): void {
         // this.robotCommands$.subscribe(console.log);        
-        // this.robotState$.subscribe(console.log)
+        this.robotState$.subscribe(console.log)
     }
 }
