@@ -36,10 +36,10 @@ export class HomeComponent implements OnInit {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(s):any {
+    moveCar(s:IrobotState):any {
         // if no return here, it will fire an error at runtime. don't know why?
-        return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
-           
+        // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
+        return this.mqtt.callArest('moveCar', s);   
     }
     // when tap on button, there a down, many move... an up events.
     robotCommands$ = merge(
