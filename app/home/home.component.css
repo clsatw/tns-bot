@@ -7,3 +7,24 @@
 .description-label{
     margin-bottom: 15;
 }
+.btn {
+    background-color: lightgreen;
+    color: darkred;
+}
+
+.btn:pressed{
+    transform: scale(1.2, 1.2);
+    background-color: darkgreen;
+    color: lightpink;
+}
+
+.switch{
+    color: darkorange;
+    background-color: darkred;
+    off-background-color: black;  
+}
+
+ActionBar {
+    background-color:  #3C5AFD;
+    color: white;
+}

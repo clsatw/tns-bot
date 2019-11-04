@@ -1,6 +1,6 @@
 // import { ItemEventData } from "tns-core-modules/ui/list-view"
-import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
-import { Subject, Observable, merge, combineLatest } from 'rxjs';
+import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from "@angular/core";
+import { Subject, Observable, merge, combineLatest, Subscription } from 'rxjs';
 import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime, throttleTime, skipWhile, takeWhile, switchMap } from 'rxjs/operators';
 import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
@@ -16,7 +16,8 @@ import { MqttProvider } from './providers/mqtt/mqtt';
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.css"]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy{
+    navSubscription: Subscription;
     errorMessage = 'Iot Self-Driving Car';
     initialRobotState: IrobotState = {
         direction: cmdEnum.STOP,
@@ -117,7 +118,7 @@ export class HomeComponent implements OnInit {
         // this.robotState$.subscribe(console.log);
         // this.direction$.subscribe(console.log);       
         // ** this console.log shows everything!
-        this.navigation$.subscribe((res: any)=>{
+        this.navSubscription = this.navigation$.subscribe((res: any)=>{
             if (res.connected===false){
                 // console.dir(res);
                 alert(res.message+res.id);
@@ -128,5 +129,9 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         // this.robotCommands$.subscribe(console.log);        
         this.robotState$.subscribe(console.log)
+        // this.navMode$.subscribe(console.log);
+    }
+    ngOnDestroy(): void {
+        this.navSubscription.unsubscribe();
     }
 }

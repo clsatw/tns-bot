@@ -18,7 +18,7 @@ export class MqttProvider {
   // URLs are strings and all values in a URL are strings. When you see i=0 in a URL, 0 is a string.
   // When you see b=true, true is a string. When you see s=, the value is an empty string.
   callArest(fnName: string, s:IrobotState): Observable<any> {    
-    const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction},${s.autoPilot.toString()}`;
+    const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)

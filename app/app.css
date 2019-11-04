@@ -17,8 +17,10 @@ In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
-@import '~nativescript-theme-core/css/core.light.css';
+
+/* has to go in home.component.css - don't know why
 ActionBar {
-    background-color: black;
+    background-color:  #3C5AFD;
     color: white;
-  }
+}
+*/
