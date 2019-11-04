@@ -4,13 +4,15 @@
 <ScrollView>
     <StackLayout verticalAlignment='center' horizontalAlignment='center'>
         <GridLayout columns='auto, auto, auto' rows='auto, auto, auto'>
-            w<Button class='btn' (touch)="btnF$.next($event)" text='Forward' row='0' col='1'></Button>
+            <Button class='btn' (touch)="btnF$.next($event)" text='Forward' row='0' col='1'></Button>
             <Button class='btn' (touch)="btnL$.next($event)" text='Left' row='1' col='0'></Button>
             <ActivityIndicator row='1' col='1' [busy]='this.navMode$ | async' class="activity-indicator">
             </ActivityIndicator>
+            <Button  visibility="{{(this.navMode$|async)? 'collapse':'visible'}}" class='btn' (touch)="btnS$.next($event)" text='Stop' row='1' col='1'></Button>
             <Button class='btn' (touch)="btnR$.next($event)" text='Right' row='1' col='2'></Button>
             <Button class='btn' (touch)="btnB$.next($event)" text='Back' row='2' col='1'></Button>
         </GridLayout>
+
         <label></label>
         <label textAlignment='center' textWrap='true' text='Max distance to wall' class='h3 description-label'></label>
         <Slider (valueChange)="disToWall$.next($event)" value="10" minValue="10" maxValue="200">

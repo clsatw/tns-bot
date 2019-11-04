@@ -1,0 +1,11 @@
+webpackHotUpdate(0,{
+
+/***/ "./home/home.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".home-panel{\n    vertical-align: center; \n    font-size: 20;\n    margin: 15;\n}\n\n.description-label{\n    margin-bottom: 15;\n}\n.btn {\n    border-radius: 80;\n    background-color: lightgreen;\n    color: darkred;\n}\n\n.btn:pressed{\n    transform: scale(1.2, 1.2);\n    background-color: darkgreen;\n    color: lightpink;\n}\n.stopBtn{\n    border-radius: 80;\n}\n.switch{\n    color: darkorange;\n    background-color: darkred;\n    off-background-color: black;  \n}\n\nActionBar {\n    background-color:  #3C5AFD;\n    color: white;\n}"
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9ob21lL2hvbWUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLDhCQUE4Qiw2QkFBNkIscUJBQXFCLGlCQUFpQixHQUFHLHVCQUF1Qix3QkFBd0IsR0FBRyxRQUFRLHdCQUF3QixtQ0FBbUMscUJBQXFCLEdBQUcsaUJBQWlCLGlDQUFpQyxrQ0FBa0MsdUJBQXVCLEdBQUcsV0FBVyx3QkFBd0IsR0FBRyxVQUFVLHdCQUF3QixnQ0FBZ0Msa0NBQWtDLEtBQUssZUFBZSxpQ0FBaUMsbUJBQW1CLEdBQUcsQyIsImZpbGUiOiIwLjMwNzEwZjcwZGFlMjI1MDg5NTk1LmhvdC11cGRhdGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IFwiLmhvbWUtcGFuZWx7XFxuICAgIHZlcnRpY2FsLWFsaWduOiBjZW50ZXI7IFxcbiAgICBmb250LXNpemU6IDIwO1xcbiAgICBtYXJnaW46IDE1O1xcbn1cXG5cXG4uZGVzY3JpcHRpb24tbGFiZWx7XFxuICAgIG1hcmdpbi1ib3R0b206IDE1O1xcbn1cXG4uYnRuIHtcXG4gICAgYm9yZGVyLXJhZGl1czogODA7XFxuICAgIGJhY2tncm91bmQtY29sb3I6IGxpZ2h0Z3JlZW47XFxuICAgIGNvbG9yOiBkYXJrcmVkO1xcbn1cXG5cXG4uYnRuOnByZXNzZWR7XFxuICAgIHRyYW5zZm9ybTogc2NhbGUoMS4yLCAxLjIpO1xcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrZ3JlZW47XFxuICAgIGNvbG9yOiBsaWdodHBpbms7XFxufVxcbi5zdG9wQnRue1xcbiAgICBib3JkZXItcmFkaXVzOiA4MDtcXG59XFxuLnN3aXRjaHtcXG4gICAgY29sb3I6IGRhcmtvcmFuZ2U7XFxuICAgIGJhY2tncm91bmQtY29sb3I6IGRhcmtyZWQ7XFxuICAgIG9mZi1iYWNrZ3JvdW5kLWNvbG9yOiBibGFjazsgIFxcbn1cXG5cXG5BY3Rpb25CYXIge1xcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAgIzNDNUFGRDtcXG4gICAgY29sb3I6IHdoaXRlO1xcbn1cIiJdLCJzb3VyY2VSb290IjoiIn0=

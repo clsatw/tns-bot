@@ -8,6 +8,8 @@
     margin-bottom: 15;
 }
 .btn {
+    margin:15px;
+    border-radius: 80;
     background-color: lightgreen;
     color: darkred;
 }
@@ -20,8 +22,7 @@
 
 .switch{
     color: darkorange;
-    background-color: darkred;
-    off-background-color: black;  
+    background-color: darkred;    
 }
 
 ActionBar {

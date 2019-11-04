@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy{
         direction: cmdEnum.STOP,
         speed: 50,
         disToWall: 10,
-        autoPilot: false
+        autoPilot: 0
     }
     // last event is always up, so this is filtered by distinctUntilChange operator.
     // btnS$ = new Subject<TouchGestureEventData>();
@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     btnL$ = new Subject<TouchGestureEventData>();
     btnR$ = new Subject<TouchGestureEventData>();
     btnB$ = new Subject<TouchGestureEventData>();
+    btnS$ = new Subject<TouchGestureEventData>();
     inputSpeed$ = new Subject<Event>();
     disToWall$ = new Subject<Event>();
     autoPilot$ = new Subject<any>();
@@ -75,7 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy{
         this.disToWall$.pipe(inputToValue(), map(n => ({ disToWall: n }))),
         this.autoPilot$.pipe(
             // tap(n=>console.log(n.action)),
-            map(n => ({ autoPilot: n })))
+            map(n => ({ autoPilot: n? 1:0 })))
     ).pipe(
         // debounceTime(500)
     )
@@ -120,8 +121,8 @@ export class HomeComponent implements OnInit, OnDestroy{
         // ** this console.log shows everything!
         this.navSubscription = this.navigation$.subscribe((res: any)=>{
             if (res.connected===false){
-                // console.dir(res);
-                alert(res.message+res.id);
+                console.dir(res);
+                // alert(res.message+res.id);
             }
         })
     }

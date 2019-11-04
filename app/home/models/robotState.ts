@@ -1,6 +1,6 @@
 export interface IrobotState {
     direction: number;
-    autoPilot: boolean;
+    autoPilot: number;  // why not boolean? coz it is for arduino part 
     speed: number;
     disToWall: number;
 }
