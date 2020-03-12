@@ -6,6 +6,8 @@ import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
 import { MqttProvider } from './providers/mqtt/mqtt';
+import * as dialogs from "tns-core-modules/ui/dialogs";
+
 // import { getEventOrGestureName } from "tns-core-modules/ui/page/page";
 // import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
 
@@ -18,7 +20,7 @@ import { MqttProvider } from './providers/mqtt/mqtt';
 })
 export class HomeComponent implements OnInit, OnDestroy{
     navSubscription: Subscription;
-    errorMessage = 'Iot Self-Driving Car';
+    errorMessage = 'Wifi 遙控車';
     initialRobotState: IrobotState = {
         direction: cmdEnum.STOP,
         speed: 50,
@@ -122,6 +124,9 @@ export class HomeComponent implements OnInit, OnDestroy{
         this.navSubscription = this.navigation$.subscribe((res: any)=>{
             if (res.connected===false){
                 console.dir(res);
+                dialogs.alert("Cannot connect to the car!").then(()=> {
+                    console.log("Dialog closed!");
+                });
                 // alert(res.message+res.id);
             }
         })

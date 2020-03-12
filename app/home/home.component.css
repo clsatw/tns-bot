@@ -7,17 +7,23 @@
 .description-label{
     margin-bottom: 15;
 }
+.stopBtn,
 .btn {
     margin:15px;
     border-radius: 80;
     background-color: lightgreen;
-    color: darkred;
+    color: darkslategray;
+}
+
+.stopBtn{
+    background-color: darkgray;
+    color: snow;
 }
 
 .btn:pressed{
     transform: scale(1.2, 1.2);
     background-color: darkgreen;
-    color: lightpink;
+    color: lightslategray;
 }
 
 .switch{
@@ -26,6 +32,7 @@
 }
 
 ActionBar {
+    text-align: center;
     background-color:  #3C5AFD;
     color: white;
 }

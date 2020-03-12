@@ -29,7 +29,7 @@
         "nativescript-image": "2.1.4",
         "nativescript-intl": "3.0.0",
         "nativescript-iqkeyboardmanager": "1.5.1",
-        "nativescript-theme-core": "1.0.6",
+        "nativescript-theme-core": "^1.0.6",
         "nativescript-ui-dataform": "5.0.0",
         "reflect-metadata": "0.1.13",
         "rxjs": "6.5.2",
