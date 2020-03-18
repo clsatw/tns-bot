@@ -3,7 +3,8 @@ export class Config {
     // static apiUrl = "https://api.thingspeak.com/";
     // static apiKey = "GU3T2CVVHXRZUWHQ";
 
-    static apiUrl = 'https://cloud.arest.io';    
+    // static apiUrl = 'https://cloud.arest.io';  
+    static apiUrl = 'http://ajoan.com';  
     static deviceId = '107929'; // the car's id registerd in arest website   
   }
 

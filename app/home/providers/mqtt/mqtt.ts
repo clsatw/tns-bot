@@ -14,11 +14,12 @@ export class MqttProvider {
 
   constructor(private http: HttpClient) {
   }
-  
+
   // URLs are strings and all values in a URL are strings. When you see i=0 in a URL, 0 is a string.
   // When you see b=true, true is a string. When you see s=, the value is an empty string.
-  callArest(fnName: string, s:IrobotState): Observable<any> {    
-    const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+  publish(fnName: string, s: IrobotState): Observable<any> {
+    // const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+    const url = `${Config.apiUrl}/moveCar?payload=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
@@ -61,7 +62,7 @@ export class MqttProvider {
   */
 
   private handleError(error: Response) {
-    console.log('Handling error locally and rethrowing it...', JSON.stringify(error.json()));
+    console.log('Handling error locally and rethrowing it...', JSON.stringify(error));
     //return Observable.throw(error);
     return throwError(error);
   }
