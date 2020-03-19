@@ -25,7 +25,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_token_bg.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable\\token_bg.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable\\token_bg.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
@@ -201,7 +201,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_autocomplete_bg_normal.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-v21\\autocomplete_bg_normal.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-v21\\autocomplete_bg_normal.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -253,7 +253,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_token_remove.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxhdpi-v4\\ic_token_remove.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxhdpi-v4\\ic_token_remove.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_browser_actions_context_menu_page.xml.flat",
@@ -293,7 +293,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_token_remove.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-hdpi-v4\\ic_token_remove.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-hdpi-v4\\ic_token_remove.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_password_eye.xml.flat",
@@ -389,11 +389,15 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_autocomplete_focusable_bg.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable\\autocomplete_focusable_bg.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable\\autocomplete_focusable_bg.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_data_form_editor_header_layout_1.xml.flat",
         "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\a8087ce9411884871f0ad2d6ba2d1c77\\res\\layout\\data_form_editor_header_layout_1.xml"
+    },
+    {
+        "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_clear_white.png.flat",
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxhdpi-v4\\ic_clear_white.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
@@ -425,11 +429,11 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_token_remove_pressed.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-mdpi-v4\\ic_token_remove_pressed.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-mdpi-v4\\ic_token_remove_pressed.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_clear.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxhdpi-v4\\ic_clear.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxhdpi-v4\\ic_clear.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_light.xml.flat",
@@ -545,7 +549,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_clear.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xhdpi-v4\\ic_clear.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xhdpi-v4\\ic_clear.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_fab_background.xml.flat",
@@ -565,7 +569,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_token_text_color.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable\\token_text_color.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable\\token_text_color.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_data_form_seek_bar_editor.xml.flat",
@@ -581,7 +585,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_autocomplete_bg_active.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-v21\\autocomplete_bg_active.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-v21\\autocomplete_bg_active.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_top_material.xml.flat",
@@ -590,6 +594,10 @@
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
         "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\bec4164aa92899d475bb93ebda35c98f\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_clear_white.png.flat",
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-hdpi-v4\\ic_clear_white.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -637,7 +645,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_token_remove_pressed.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xhdpi-v4\\ic_token_remove_pressed.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xhdpi-v4\\ic_token_remove_pressed.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -729,7 +737,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_clear.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-hdpi-v4\\ic_clear.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-hdpi-v4\\ic_clear.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_data_form_editor_validation_layout_1.xml.flat",
@@ -841,7 +849,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_token_remove_pressed.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-hdpi-v4\\ic_token_remove_pressed.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-hdpi-v4\\ic_token_remove_pressed.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
@@ -857,7 +865,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_clear.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxxhdpi-v4\\ic_clear.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxxhdpi-v4\\ic_clear.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -881,7 +889,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_suggestion_item_layout.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\layout\\suggestion_item_layout.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\layout\\suggestion_item_layout.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_cascading_menu_item_layout.xml.flat",
@@ -933,7 +941,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_clear.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-mdpi-v4\\ic_clear.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-mdpi-v4\\ic_clear.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1081,7 +1089,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_token_remove.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-mdpi-v4\\ic_token_remove.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-mdpi-v4\\ic_token_remove.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_logo.png.flat",
@@ -1149,7 +1157,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_autocomplete_focusable_bg.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-v21\\autocomplete_focusable_bg.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-v21\\autocomplete_focusable_bg.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
@@ -1161,7 +1169,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_token_remove.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxxhdpi-v4\\ic_token_remove.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxxhdpi-v4\\ic_token_remove.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_tabs_colored_ripple_color.xml.flat",
@@ -1261,7 +1269,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_token.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\layout\\token.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\layout\\token.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
@@ -1465,7 +1473,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_token_remove_pressed.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxxhdpi-v4\\ic_token_remove_pressed.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxxhdpi-v4\\ic_token_remove_pressed.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material.xml.flat",
@@ -1613,7 +1621,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_token_selected.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable\\token_selected.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable\\token_selected.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -1729,7 +1737,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_token_remove_pressed.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xxhdpi-v4\\ic_token_remove_pressed.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxhdpi-v4\\ic_token_remove_pressed.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -1805,7 +1813,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_token_default.xml.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable\\token_default.xml"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable\\token_default.xml"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_text_material.xml.flat",
@@ -1824,6 +1832,10 @@
         "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\f8de107dfdc2446141d5dfa5c8edda65\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
+        "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_clear_white.png.flat",
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xxxhdpi-v4\\ic_clear_white.png"
+    },
+    {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_data_form_integer_editor.xml.flat",
         "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\a8087ce9411884871f0ad2d6ba2d1c77\\res\\layout\\data_form_integer_editor.xml"
     },
@@ -1837,7 +1849,7 @@
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_token_remove.png.flat",
-        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\drawable-xhdpi-v4\\ic_token_remove.png"
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xhdpi-v4\\ic_token_remove.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -1882,6 +1894,10 @@
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_logo.png.flat",
         "source": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\logo.png"
+    },
+    {
+        "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_clear_white.png.flat",
+        "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\drawable-xhdpi-v4\\ic_clear_white.png"
     },
     {
         "merged": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",

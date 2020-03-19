@@ -115,7 +115,10 @@ export class HomeComponent implements OnInit, OnDestroy{
             */
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
-            switchMap((s: IrobotState) => this.moveCar(s))
+            // throttleTime(1500),
+            debounceTime(1500),
+            // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
+            map((s: IrobotState) => this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {
@@ -135,7 +138,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
     ngOnInit(): void {
         // this.robotCommands$.subscribe(console.log);        
-        this.robotState$.subscribe(console.log)
+        this.robotState$.subscribe();
         // this.navMode$.subscribe(console.log);
     }
     ngOnDestroy(): void {

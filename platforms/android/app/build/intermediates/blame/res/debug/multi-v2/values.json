@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\fd03bc3ea55c59da98dd84a74b67bad1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,102,151,208",
+                        "endColumns": "46,48,56,58",
+                        "endOffsets": "97,146,203,262"
+                    },
+                    "to": {
+                        "startLines": "143,144,222,223",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "9178,9225,14512,14569",
+                        "endColumns": "46,48,56,58",
+                        "endOffsets": "9220,9269,14564,14623"
+                    }
+                },
+                {
                     "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\26341add81436f8b180caf9447f90387\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,5,6,7,8,10,11,12,13,14",
@@ -192,9 +209,9 @@
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "55",
+                        "startOffsets": "57",
                         "endColumns": "51",
-                        "endOffsets": "102"
+                        "endOffsets": "104"
                     },
                     "to": {
                         "startLines": "117",
@@ -205,31 +222,14 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\4916d52516c052d8a668bf6d7ea2f248\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,102,151,208",
-                        "endColumns": "46,48,56,58",
-                        "endOffsets": "97,146,203,262"
-                    },
-                    "to": {
-                        "startLines": "143,144,222,223",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "9178,9225,14512,14569",
-                        "endColumns": "46,48,56,58",
-                        "endOffsets": "9220,9269,14564,14623"
-                    }
-                },
-                {
                     "source": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\src\\main\\res\\values\\errorstyles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "114",
+                        "startOffsets": "116",
                         "endLines": "5",
                         "endColumns": "12",
-                        "endOffsets": "309"
+                        "endOffsets": "314"
                     },
                     "to": {
                         "startLines": "1951",
@@ -262,9 +262,9 @@
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
-                        "startOffsets": "55,102",
+                        "startOffsets": "57,105",
                         "endColumns": "46,59",
-                        "endOffsets": "97,157"
+                        "endOffsets": "99,160"
                     },
                     "to": {
                         "startLines": "469,485",

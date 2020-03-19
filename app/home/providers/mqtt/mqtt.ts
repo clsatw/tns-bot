@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 import { tap, map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Config } from '../config';
 import { IrobotState } from '~/home/models/robotState';
 
@@ -61,10 +61,15 @@ export class MqttProvider {
     }
   */
 
-  private handleError(error: Response) {
-    console.log('Handling error locally and rethrowing it...', JSON.stringify(error));
-    //return Observable.throw(error);
-    return throwError(error);
+  private handleError(error:HttpErrorResponse) {
+    let errorMessage = '';
+  
+      errorMessage = `Error: ${error.error.message}`;
+    
+      // server-side error
+    errorMessage = errorMessage + `Error Code: ${error.status}\nMessage: ${error.message}`;
+   
+    // window.alert(errorMessage);
+    return throwError(errorMessage);
   }
-
 }

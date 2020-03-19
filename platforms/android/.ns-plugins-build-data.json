@@ -6,8 +6,8 @@
 		"E:\\var\\www\\tns-robcar\\node_modules\\kinvey-nativescript-sdk\\platforms\\android\\AndroidManifest.mic.xml": "e737daf7c176fccaaef98265e11610e876b4a328"
 	},
 	"nativescript-background-http": {
-		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-background-http\\platforms\\android\\include.gradle": "52e678f0cb90a372cd671ff6445a1b2d3d26c472",
-		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-background-http\\platforms\\android\\nativescript_background_http.aar": "990fab141fc84295d8522140b03e4e19e6b0bbf4"
+		"E:\\var\\www\\tns-robcar\\node_modules\\kinvey-nativescript-sdk\\node_modules\\nativescript-background-http\\platforms\\android\\include.gradle": "06d4d7e83809f7770ade4cefe0967e3c42d4a778",
+		"E:\\var\\www\\tns-robcar\\node_modules\\kinvey-nativescript-sdk\\node_modules\\nativescript-background-http\\platforms\\android\\nativescript_background_http.aar": "46183a8894ae73b66293bfc0f5112ba00c77cf71"
 	},
 	"nativescript-image": {
 		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-image\\platforms\\android\\include.gradle": "ea5691e4cd413900f36cd662c4aa54023e587772"
@@ -21,14 +21,14 @@
 	},
 	"nativescript-ui-autocomplete": {
 		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-autocomplete\\platforms\\android\\include.gradle": "f3cee71f7a1cfc3f567bb82cf49fe10a8cccd33a",
-		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-autocomplete\\platforms\\android\\typings\\autocomplete.d.ts": "8c1a62a5512c258359ea11038c4ee96b87c9d58e",
-		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-autocomplete\\platforms\\android\\TNSAutoComplete-release.aar": "47a247ed66724cbaa263559bd2650b537c3bbf1d"
+		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-autocomplete\\platforms\\android\\typings\\autocomplete.d.ts": "b23552a4388a500700bd43f37f285c8f80cce042",
+		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-autocomplete\\platforms\\android\\TNSAutoComplete-release.aar": "5568e7c9f027d196da613241dcbc3fcbcf5b8a05"
 	},
 	"nativescript-ui-core": {
 		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-core\\platforms\\android\\typings\\core.d.ts": "5c032652edfa1719ef8c8190fc0f66d3b1c313c2",
 		"E:\\var\\www\\tns-robcar\\node_modules\\nativescript-ui-core\\platforms\\android\\TNSCore-release.aar": "0e2fe0b867821ad56b8f0b9c8ac4c90f4c399e3c"
 	},
 	"tns-core-modules-widgets": {
-		"E:\\var\\www\\tns-robcar\\node_modules\\tns-core-modules-widgets\\platforms\\android\\widgets-release.aar": "a57aaf63491cb3fdf36164a824485b607030554a"
+		"E:\\var\\www\\tns-robcar\\node_modules\\tns-core-modules-widgets\\platforms\\android\\widgets-release.aar": "b8f4f26de1babab93b25e62167b3467938288d52"
 	}
 }

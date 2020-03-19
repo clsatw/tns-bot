@@ -1021,6 +1021,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_clear
+drawable ic_clear_white
 drawable ic_collapse_dataform_group
 drawable ic_expand_dataform_group
 drawable ic_mtrl_chip_checked_black

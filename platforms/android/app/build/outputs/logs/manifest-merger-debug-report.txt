@@ -16,12 +16,11 @@ MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\roach\.gradle\ca
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\277fa725f4e3f0ade020cec97c9e951a\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\590f1ed78e6563a686384e7099dae4be\AndroidManifest.xml:17:1-22:12
 MERGED from [:nativescript-optimized-with-inspector:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\218a0b581016ddf416689097659a6bc7\AndroidManifest.xml:2:1-11:12
-MERGED from [:kinvey_nativescript_sdk:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4f56ec96403f4b65b3348bb498eb401e\AndroidManifest.xml:2:1-11:12
 MERGED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:2:1-25:12
 MERGED from [:TNSDataForm-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\a8087ce9411884871f0ad2d6ba2d1c77\AndroidManifest.xml:2:1-11:12
-MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4916d52516c052d8a668bf6d7ea2f248\AndroidManifest.xml:2:1-11:12
+MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\fd03bc3ea55c59da98dd84a74b67bad1\AndroidManifest.xml:2:1-11:12
 MERGED from [:TNSCore-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\d00d157f33609c3741be9adca33432b8\AndroidManifest.xml:2:1-11:12
-MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\c0f0cf4fe39e088d3b9291f155ef0911\AndroidManifest.xml:2:1-14:12
+MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\552f7c880c5ce9d88a382e43a1a8dff1\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\bf1b47274e245f1c6697899213aa1947\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\7fa848d44b40ecfb0e3eaea2faad10d8\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\408cf72ab7e19895050d85ce08435967\AndroidManifest.xml:17:1-22:12
@@ -115,18 +114,16 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roach\.gradle\cac
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\590f1ed78e6563a686384e7099dae4be\AndroidManifest.xml:20:5-44
 MERGED from [:nativescript-optimized-with-inspector:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\218a0b581016ddf416689097659a6bc7\AndroidManifest.xml:7:5-9:41
 MERGED from [:nativescript-optimized-with-inspector:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\218a0b581016ddf416689097659a6bc7\AndroidManifest.xml:7:5-9:41
-MERGED from [:kinvey_nativescript_sdk:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4f56ec96403f4b65b3348bb498eb401e\AndroidManifest.xml:7:5-47
-MERGED from [:kinvey_nativescript_sdk:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4f56ec96403f4b65b3348bb498eb401e\AndroidManifest.xml:7:5-47
 MERGED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:7:5-47
 MERGED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:7:5-47
 MERGED from [:TNSDataForm-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\a8087ce9411884871f0ad2d6ba2d1c77\AndroidManifest.xml:7:5-9:41
 MERGED from [:TNSDataForm-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\a8087ce9411884871f0ad2d6ba2d1c77\AndroidManifest.xml:7:5-9:41
-MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4916d52516c052d8a668bf6d7ea2f248\AndroidManifest.xml:7:5-9:41
-MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4916d52516c052d8a668bf6d7ea2f248\AndroidManifest.xml:7:5-9:41
+MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\fd03bc3ea55c59da98dd84a74b67bad1\AndroidManifest.xml:7:5-9:41
+MERGED from [:TNSAutoComplete-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\fd03bc3ea55c59da98dd84a74b67bad1\AndroidManifest.xml:7:5-9:41
 MERGED from [:TNSCore-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\d00d157f33609c3741be9adca33432b8\AndroidManifest.xml:7:5-9:41
 MERGED from [:TNSCore-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\d00d157f33609c3741be9adca33432b8\AndroidManifest.xml:7:5-9:41
-MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\c0f0cf4fe39e088d3b9291f155ef0911\AndroidManifest.xml:7:5-9:41
-MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\c0f0cf4fe39e088d3b9291f155ef0911\AndroidManifest.xml:7:5-9:41
+MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\552f7c880c5ce9d88a382e43a1a8dff1\AndroidManifest.xml:7:5-9:41
+MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\552f7c880c5ce9d88a382e43a1a8dff1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\bf1b47274e245f1c6697899213aa1947\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\bf1b47274e245f1c6697899213aa1947\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\7fa848d44b40ecfb0e3eaea2faad10d8\AndroidManifest.xml:20:5-44
@@ -213,7 +210,6 @@ INJECTED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManife
 		ADDED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:14:3-29
 		INJECTED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml
 		MERGED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:14:3-29
-		MERGED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:14:3-29
 		INJECTED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:17:2-76
@@ -245,8 +241,8 @@ MERGED from [com.google.android.material:material:1.0.0] C:\Users\roach\.gradle\
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\ff1f463494e99d682f20a9d086237b1d\AndroidManifest.xml:22:5-20
 MERGED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:14:5-23:19
 MERGED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:14:5-23:19
-MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\c0f0cf4fe39e088d3b9291f155ef0911\AndroidManifest.xml:11:5-12:19
-MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\c0f0cf4fe39e088d3b9291f155ef0911\AndroidManifest.xml:11:5-12:19
+MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\552f7c880c5ce9d88a382e43a1a8dff1\AndroidManifest.xml:11:5-12:19
+MERGED from [:widgets-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\552f7c880c5ce9d88a382e43a1a8dff1\AndroidManifest.xml:11:5-12:19
 MERGED from [androidx.core:core:1.0.1] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\bec4164aa92899d475bb93ebda35c98f\AndroidManifest.xml:22:5-89
 MERGED from [androidx.core:core:1.0.1] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\bec4164aa92899d475bb93ebda35c98f\AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\74a77d31877317bf45edd58d885dd7a2\AndroidManifest.xml:22:5-23:19
@@ -309,10 +305,6 @@ ADDED from [net.gotev:uploadservice:3.4.2] C:\Users\roach\.gradle\caches\transfo
 		ADDED from [net.gotev:uploadservice:3.4.2] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\d7a66e0814faf4e7b479fec40884aa43\AndroidManifest.xml:20:13-37
 	android:name
 		ADDED from [net.gotev:uploadservice:3.4.2] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\d7a66e0814faf4e7b479fec40884aa43\AndroidManifest.xml:18:13-65
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:kinvey_nativescript_sdk:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4f56ec96403f4b65b3348bb498eb401e\AndroidManifest.xml:9:5-79
-	android:name
-		ADDED from [:kinvey_nativescript_sdk:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\4f56ec96403f4b65b3348bb498eb401e\AndroidManifest.xml:9:22-76
 uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from [:nativescript_background_http:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\35cbd86fc8ab9a078ebc5f838676bafa\AndroidManifest.xml:9:5-77
 	android:name
