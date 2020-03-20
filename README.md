@@ -13,3 +13,6 @@ tns build android
     upload codes to nodemcu
     http://ajoan/moveCar?payload=100,10,3,0
 
+
+      "kinvey-nativescript-sdk": "4.2.5",
+

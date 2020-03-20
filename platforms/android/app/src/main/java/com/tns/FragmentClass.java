@@ -13,16 +13,6 @@ public class FragmentClass extends org.nativescript.widgets.FragmentBase
     com.tns.Runtime.initInstance(this);
   }
 
-  public android.animation.Animator onCreateAnimator(int param_0, boolean param_1, int param_2) {
-    java.lang.Object[] args = new java.lang.Object[3];
-    args[0] = param_0;
-    args[1] = param_1;
-    args[2] = param_2;
-    return (android.animation.Animator)
-        com.tns.Runtime.callJSMethod(
-            this, "onCreateAnimator", android.animation.Animator.class, args);
-  }
-
   public java.lang.String toString() {
     java.lang.Object[] args = new java.lang.Object[0];
     return (java.lang.String)
@@ -33,6 +23,16 @@ public class FragmentClass extends org.nativescript.widgets.FragmentBase
     java.lang.Object[] args = new java.lang.Object[1];
     args[0] = param_0;
     com.tns.Runtime.callJSMethod(this, "onHiddenChanged", void.class, args);
+  }
+
+  public android.animation.Animator onCreateAnimator(int param_0, boolean param_1, int param_2) {
+    java.lang.Object[] args = new java.lang.Object[3];
+    args[0] = param_0;
+    args[1] = param_1;
+    args[2] = param_2;
+    return (android.animation.Animator)
+        com.tns.Runtime.callJSMethod(
+            this, "onCreateAnimator", android.animation.Animator.class, args);
   }
 
   public void onCreate(android.os.Bundle param_0) {
@@ -57,6 +57,11 @@ public class FragmentClass extends org.nativescript.widgets.FragmentBase
     java.lang.Object[] args = new java.lang.Object[1];
     args[0] = param_0;
     com.tns.Runtime.callJSMethod(this, "onSaveInstanceState", void.class, args);
+  }
+
+  public void onPause() {
+    java.lang.Object[] args = new java.lang.Object[0];
+    com.tns.Runtime.callJSMethod(this, "onPause", void.class, args);
   }
 
   public void onStop() {

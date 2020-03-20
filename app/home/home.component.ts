@@ -18,7 +18,7 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.css"]
 })
-export class HomeComponent implements OnInit, OnDestroy{
+export class HomeComponent implements OnInit, OnDestroy {
     navSubscription: Subscription;
     errorMessage = 'Wifi 遙控車';
     initialRobotState: IrobotState = {
@@ -40,11 +40,11 @@ export class HomeComponent implements OnInit, OnDestroy{
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(s:IrobotState):any {
+    moveCar(topic:string, s: IrobotState): any {
         // if no return here, it will fire an error at runtime. don't know why?
         // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
         console.log('going to move car!');
-        return this.mqtt.publish('moveCar', s);   
+        return this.mqtt.publish(topic, s);
     }
     // when tap on button, there a down, many move... an up events.
     robotCommands$ = merge(
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy{
         this.disToWall$.pipe(inputToValue(), map(n => ({ disToWall: n }))),
         this.autoPilot$.pipe(
             // tap(n=>console.log(n.action)),
-            map(n => ({ autoPilot: n? 1:0 })))
+            map(n => ({ autoPilot: n ? 1 : 0 })))
     ).pipe(
         // debounceTime(500)
     )
@@ -118,21 +118,24 @@ export class HomeComponent implements OnInit, OnDestroy{
             // throttleTime(1500),
             debounceTime(1500),
             // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
-            map((s: IrobotState) => this.moveCar(s))
+            map((s: IrobotState) => this.moveCar('moveCar', s))
         )
 
     constructor(private mqtt: MqttProvider) {
         // this.robotState$.subscribe(console.log);
         // this.direction$.subscribe(console.log);       
         // ** this console.log shows everything!
-        this.navSubscription = this.navigation$.subscribe((res: any)=>{
-            if (res.connected===false){
-                console.dir(res);
-                dialogs.alert("Cannot connect to the car!").then(()=> {
+        this.navSubscription = this.navigation$.subscribe((res: number) => {            
+            // see if init http request successfully.
+            /*
+            if (res != 200 ) {
+                console.log(res);
+                dialogs.alert("Cannot connect to the car!").then(() => {
                     console.log("Dialog closed!");
                 });
                 // alert(res.message+res.id);
-            }
+            } 
+            */           
         })
     }
 

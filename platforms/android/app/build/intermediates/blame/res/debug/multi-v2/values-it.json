@@ -4,7 +4,7 @@
             "outputFile": "E:\\var\\www\\tns-robcar\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\f8de107dfdc2446141d5dfa5c8edda65\\res\\values-it\\values-it.xml",
+                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\48b229e147a4dca9b4b961003e452a83\\appcompat-1.0.2\\res\\values-it\\values-it.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\bec4164aa92899d475bb93ebda35c98f\\res\\values-it\\values-it.xml",
+                    "source": "C:\\Users\\roach\\.gradle\\caches\\transforms-2\\files-2.1\\eeb5da7c8c0996fbc1c9cdf4633c58bb\\core-1.0.1\\res\\values-it\\values-it.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

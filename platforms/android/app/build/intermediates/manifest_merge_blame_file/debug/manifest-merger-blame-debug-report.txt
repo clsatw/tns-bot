@@ -1,0 +1,99 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.nativescript.blankng"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:13:2-15:44
+8        android:minSdkVersion="17"
+8-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:14:3-29
+9        android:targetSdkVersion="28" />
+9-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:15:3-42
+10
+11    <supports-screens
+11-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:7:2-11:33
+12        android:largeScreens="true"
+12-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:10:3-30
+13        android:normalScreens="true"
+13-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:9:3-31
+14        android:smallScreens="true"
+14-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:8:3-30
+15        android:xlargeScreens="true" />
+15-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:11:3-31
+16
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:17:2-76
+17-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:17:19-74
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+18-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:18:2-77
+18-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:18:19-75
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:19:2-63
+19-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:19:19-61
+20    <uses-permission android:name="android.permission.WAKE_LOCK" />
+20-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:14:5-68
+20-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:14:22-65
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+21-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:15:5-77
+21-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:15:22-74
+22
+23    <application
+23-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:21:2-42:16
+24        android:name="com.tns.NativeScriptApplication"
+24-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:22:3-49
+25        android:allowBackup="true"
+25-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:23:3-29
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.0.1] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\eeb5da7c8c0996fbc1c9cdf4633c58bb\core-1.0.1\AndroidManifest.xml:22:18-86
+27        android:debuggable="true"
+28        android:icon="@drawable/icon"
+28-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:24:3-32
+29        android:label="@string/app_name"
+29-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:25:3-35
+30        android:theme="@style/AppTheme" >
+30-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:26:3-34
+31        <activity
+31-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:28:3-40:14
+32            android:name="com.tns.NativeScriptActivity"
+32-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:29:4-47
+33            android:configChanges="keyboardHidden|orientation|screenSize"
+33-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:31:4-65
+34            android:label="@string/title_activity_kimera"
+34-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:30:4-49
+35            android:theme="@style/LaunchScreenTheme" >
+35-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:32:4-44
+36            <meta-data
+36-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:34:4-87
+37                android:name="SET_THEME_ON_LAUNCH"
+37-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:34:15-49
+38                android:resource="@style/AppTheme" />
+38-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:34:50-84
+39
+40            <intent-filter>
+40-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:36:4-39:20
+41                <action android:name="android.intent.action.MAIN" />
+41-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:37:5-57
+41-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:37:13-54
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:38:5-65
+43-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:38:15-62
+44            </intent-filter>
+45        </activity>
+46        <activity android:name="com.tns.ErrorReportActivity" />
+46-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:41:3-57
+46-->E:\var\www\tns-robcar\platforms\android\app\src\main\AndroidManifest.xml:41:13-55
+47
+48        <service
+48-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:18:9-22:19
+49            android:name="net.gotev.uploadservice.UploadService"
+49-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:19:13-65
+50            android:enabled="true"
+50-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:20:13-35
+51            android:exported="false" >
+51-->[:uploadservice-release:] C:\Users\roach\.gradle\caches\transforms-2\files-2.1\746be1cd9bc24303352945b2eea4219d\uploadservice-release\AndroidManifest.xml:21:13-37
+52        </service>
+53    </application>
+54
+55</manifest>
