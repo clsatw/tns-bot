@@ -25,7 +25,7 @@ export class MqttProvider {
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
-    // convert promise to obserable via from
+    // convert promise to obserable via from operator
     return from(request({url: url, method: "GET"}))
       .pipe(map((res: HttpResponse) => res.statusCode));
 
@@ -57,16 +57,16 @@ export class MqttProvider {
       //catchError(this.handleError)
       //)
     }
-  
+
     callArestWithParam(fnName: string, speed: number, distToWall: number, delay: string) {
-      
+
       // console.log('speed: ', speed);
       return this.http.get(`${this.url}/${this.device_id}/${fnName}?key=${this.apiKey}&params=${speed},${distToWall},${delay}`)
         .pipe(
           tap(console.log),
           catchError(this.handleError)
         )
-        
+
     }
 
 
