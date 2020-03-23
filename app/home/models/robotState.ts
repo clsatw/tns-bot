@@ -1,6 +1,6 @@
 export interface IrobotState {  
     direction: number;
-    autoPilot: number;  // why not boolean? coz it is for arduino part 
+    autoPilot: number;  // why not boolean? coz it is for arduino part
     speed: number;
     disToWall: number;
 }
@@ -13,14 +13,14 @@ export const enum cmdEnum {
     LEFT= 'left',
     RIGHT= 'right',
     BACK= 'back',
-    AUTO= 'autoPilot' 
+    AUTO= 'autoPilot'
 }
 */
 export const enum cmdEnum {
     STOP = 0,
     FORWARD,
-    LEFT,
-    RIGHT,
     BACK,
+    RIGHT,
+    LEFT,
     AUTO
 }
