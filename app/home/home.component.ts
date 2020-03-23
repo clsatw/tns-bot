@@ -21,7 +21,8 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
 export class HomeComponent implements OnInit, OnDestroy {
     navSubscription: Subscription;
     errorMessage = 'Wifi 遙控車';
-    initialRobotState: IrobotState = {
+    devId = '';
+    initialRobotState: IrobotState = {        
         direction: cmdEnum.STOP,
         speed: 50,
         disToWall: 10,
@@ -40,11 +41,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
-    moveCar(topic:string, s: IrobotState): any {
+    moveCar(s: IrobotState): any {
         // if no return here, it will fire an error at runtime. don't know why?
-        // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
-        console.log('going to move car!');
-        return this.mqtt.publish(topic, s);
+        // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString()) 
+        return this.mqtt.publish('moveCar', this.devId, s);
     }
     // when tap on button, there a down, many move... an up events.
     robotCommands$ = merge(
@@ -118,14 +118,14 @@ export class HomeComponent implements OnInit, OnDestroy {
             // throttleTime(1500),
             debounceTime(1500),
             // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
-            map((s: IrobotState) => this.moveCar('moveCar', s))
+            map((s: IrobotState) => this.moveCar(s))
         )
 
     constructor(private mqtt: MqttProvider) {
         // this.robotState$.subscribe(console.log);
         // this.direction$.subscribe(console.log);       
         // ** this console.log shows everything!
-        this.navSubscription = this.navigation$.subscribe((res: number) => {            
+        this.navSubscription = this.navigation$.subscribe((res: number) => {
             // see if init http request successfully.
             /*
             if (res != 200 ) {
@@ -135,12 +135,19 @@ export class HomeComponent implements OnInit, OnDestroy {
                 });
                 // alert(res.message+res.id);
             } 
-            */           
+            */
         })
     }
 
     ngOnInit(): void {
-        // this.robotCommands$.subscribe(console.log);        
+        // this.robotCommands$.subscribe(console.log);  
+        // start to receive commands  
+        this.mqtt.sub('devId').subscribe(data => {
+            this.devId = data;
+            console.log('devId: ', this.devId);
+            dialogs.alert(this.devId);
+        });
+
         this.robotState$.subscribe();
         // this.navMode$.subscribe(console.log);
     }

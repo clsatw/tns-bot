@@ -1,4 +1,4 @@
-export interface IrobotState {
+export interface IrobotState {  
     direction: number;
     autoPilot: number;  // why not boolean? coz it is for arduino part 
     speed: number;
