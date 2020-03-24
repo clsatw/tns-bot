@@ -49,7 +49,6 @@ export class MqttProvider {
   }
 
   /*
-<<<<<<< HEAD
     private handleError(error: HttpErrorResponse) {
       let errorMessage = '';
   
@@ -60,32 +59,6 @@ export class MqttProvider {
   
       // window.alert(errorMessage);
       return throwError(errorMessage);
-=======
-    callArest(fnName: string, speed: String): Observable<any> {
-      const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${speed}`;
-      console.log(url);
-      // this.msg = fnName; // for css
-      // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
-      return this.http.get(url).pipe(
-        catchError(this.handleError)
-      );
-      // return this.http.get(`${Config.apiUrl}update?api_key=${Config.apiKey}&field1=${fnName}`)
-      //.pipe(
-      // tap(console.log),
-      //catchError(this.handleError)
-      //)
-    }
-
-    callArestWithParam(fnName: string, speed: number, distToWall: number, delay: string) {
-
-      // console.log('speed: ', speed);
-      return this.http.get(`${this.url}/${this.device_id}/${fnName}?key=${this.apiKey}&params=${speed},${distToWall},${delay}`)
-        .pipe(
-          tap(console.log),
-          catchError(this.handleError)
-        )
-
->>>>>>> 593ae298469c69a6e577715b9a09b24b47bc17af
     }
     */
 }
