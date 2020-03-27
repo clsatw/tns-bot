@@ -118,7 +118,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
             // debounce is to prevent sneding stop right after direction cmd if slightly touch
-            debounceTime(1500),
+            debounceTime(1200),
             // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
             map((s: IrobotState) => this.moveCar(s))
         )
