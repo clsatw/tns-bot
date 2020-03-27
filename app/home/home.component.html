@@ -4,15 +4,15 @@
     </Page.actionBar>
     <ScrollView>
         <StackLayout verticalAlignment='center' horizontalAlignment='center'>
-            <GridLayout columns='auto, auto, auto' rows='auto, auto, auto'>
-                <Button class='btn' (touch)="btnF$.next($event)" text='Forward' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='0' col='1'></Button>
-                <Button class='btn' (touch)="btnL$.next($event)" text='Left' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='1' col='0'></Button>
+            <GridLayout height="100%"  horizontalAlignment="center" columns="auto auto auto" rows="auto,*,auto"  backgroundColor="khaki">
+                <Button class='btn' (touch)="btnF$.next($event)" text='前進' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='0' col='1'></Button>
+                <Button class='btn' (touch)="btnL$.next($event)" text='左轉' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='1' col='0'></Button>
                 <ActivityIndicator row='1' col='1' [busy]='this.navMode$ | async' class="activity-indicator">
                 </ActivityIndicator>
                 <Button visibility="{{(this.navMode$|async)? 'collapse':'visible'}}" class='stopBtn'
-                    (touch)="btnS$.next($event)" text='Stop' row='1' col='1'></Button>
-                <Button class='btn' (touch)="btnR$.next($event)" text='Right' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='1' col='2'></Button>
-                <Button class='btn' (touch)="btnB$.next($event)" text='Back' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='2' col='1'></Button>
+                    (touch)="btnS$.next($event)" text='' row='1' col='1'></Button>
+                <Button class='btn' (touch)="btnR$.next($event)" text='右轉' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='1' col='2'></Button>
+                <Button class='btn' (touch)="btnB$.next($event)" text='後退' isEnabled="{{(this.navMode$|async)? 'false':'true'}}" row='2' col='1'></Button>
             </GridLayout>
             <label class="hr-dark m-10"></label>
 

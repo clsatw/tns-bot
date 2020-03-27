@@ -109,12 +109,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
-            /*            
-            tap((s: IrobotState) => {
-                // console.log(s.direction)
-                this.moveCar(s);
-            })            
-            */
+          
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
             // debounce is to prevent sneding stop right after direction cmd if slightly touch
