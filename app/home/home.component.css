@@ -25,7 +25,9 @@
     background-color: darkgreen;
     color: lightslategray;
 }
-
+.btn:disabled{
+    background-color: linen
+}
 .switch{
     color: darkorange;
     background-color: darkred;    
