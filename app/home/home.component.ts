@@ -1,7 +1,7 @@
 // import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from "@angular/core";
 import { Subject, Observable, merge, combineLatest, Subscription } from 'rxjs';
-import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime, throttleTime, skipWhile, takeWhile, switchMap } from 'rxjs/operators';
+import { catchError, exhaustMap, distinctUntilChanged, startWith, scan, map, shareReplay, tap, filter, withLatestFrom, debounceTime, throttleTime, skipWhile, takeWhile, switchMap, last } from 'rxjs/operators';
 import { IrobotState, cmdEnum } from "./models/robotState";
 import { selectDistinctState, inputToValue } from "./operators/selectDistinctState";
 import { TouchGestureEventData } from 'ui/gestures';
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     navSubscription: Subscription;
     errorMessage = 'Wifi 遙控車';
     devId = '';
-    initialRobotState: IrobotState = {        
+    initialRobotState: IrobotState = {
         direction: cmdEnum.STOP,
         speed: 50,
         disToWall: 10,
@@ -78,17 +78,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         this.disToWall$.pipe(inputToValue(), map(n => ({ disToWall: n }))),
         this.autoPilot$.pipe(
-            // tap(n=>console.log(n.action)),
+            // don't know how to send true or false in http request, so i use 0 and 1
             map(n => ({ autoPilot: n ? 1 : 0 })))
-    ).pipe(
-        // debounceTime(500)
     )
 
     robotState$: Observable<IrobotState> = this.robotCommands$
         .pipe(
             startWith(this.initialRobotState),
-            // ** touch event 'move' keeps being fired as long as not releasing.
-
+            // ** touch event 'move' keeps being fired as long as not releasing.           
             scan((state: IrobotState, command) => {
                 return ({ ...state, ...command });
             }),
@@ -97,12 +94,17 @@ export class HomeComponent implements OnInit, OnDestroy {
             shareReplay(1)
         );
 
-    direction$ = this.robotState$.pipe(selectDistinctState('direction'));
-    navMode$ = this.robotState$.pipe(selectDistinctState('autoPilot'));
+    navMode$ = this.robotState$.pipe(selectDistinctState('autoPilot'));    
+    direction$ = this.robotState$.pipe(        
+        selectDistinctState('direction'),
+        // filter out any direction emissions if autopilot is on
+        withLatestFrom(this.navMode$), 
+        filter(([dir, nav])=>nav===0))      
 
     // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
     speed$: Observable<any> = this.robotState$.pipe(selectDistinctState('speed')).pipe(debounceTime(1000));
 
+    // any of the observables emits a vaule, group the latest change together
     navigation$ = combineLatest(this.direction$, this.navMode$, this.speed$)
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
@@ -115,7 +117,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             */
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
-            // throttleTime(1500),
+            // debounce is to prevent sneding stop right after direction cmd if slightly touch
             debounceTime(1500),
             // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
             map((s: IrobotState) => this.moveCar(s))
@@ -144,8 +146,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         // start to receive commands  
         this.mqtt.sub('devId').subscribe(data => {
             this.devId = data;
-            console.log('devId: ', this.devId);
-            dialogs.alert(this.devId);
+            // console.log('devId: ', this.devId);
+            // dialogs.alert(this.devId);
         });
 
         this.robotState$.subscribe();

@@ -17,3 +17,19 @@ export function inputToValue(defaultValue: number = null) {
         );
     }
 
+/* custom operator. Hint: use Observable.create inside the custom operator
+const filterOdd = (src$: Observable<any>)=>{
+    return new Observable(observer=>{
+        return src.subscribe(value=>{
+            if (value%2 ===0){
+                observer.next(value)
+            }
+        },
+        (err)=>{
+            observer.error(err);
+        },
+        ()=>{observer.complete()}        
+        )
+    })
+}
+*/
