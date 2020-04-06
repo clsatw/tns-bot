@@ -46,9 +46,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString()) 
         return this.mqtt.publish('moveCar', this.devId, s);
     }
-    // when tap on button, there a down, many move... an up events.
+    // when tap on button, a down, many move... an up events trigged.
     robotCommands$ = merge(
-        // this.btnS$.pipe( map(e => ({ direction: cmdEnum.STOP }))),
         this.btnF$.pipe(
             // e.action: move, cancel down, up.
             filter(e => e.action !== 'move'),
@@ -94,13 +93,16 @@ export class HomeComponent implements OnInit, OnDestroy {
             shareReplay(1)
         );
 
-    navMode$ = this.robotState$.pipe(selectDistinctState('autoPilot'));    
-    direction$ = this.robotState$.pipe(        
+    navMode$ = this.robotState$.pipe(selectDistinctState('autoPilot'));
+    direction$ = this.robotState$.pipe(
         selectDistinctState('direction'),
-        // filter out any direction emissions if autopilot is on
-        withLatestFrom(this.navMode$), 
-        filter(([dir, nav])=>nav===0))      
-
+        // filter out any direction emissions if autopilot is truned on
+        /* actually i use isEnabled in html to disable buttons, so below 2 lines aren't needed
+        ** but just for reference 
+        */
+        // withLatestFrom(this.navMode$), 
+        // filter(([dir, nav])=>nav===0)      
+    )
     // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
     speed$: Observable<any> = this.robotState$.pipe(selectDistinctState('speed')).pipe(debounceTime(1000));
 
@@ -109,11 +111,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
-          
+
             // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
             // tap( console.log('s.direction') ),
             // debounce is to prevent sneding stop right after direction cmd if slightly touch
-            debounceTime(1200),
+            debounceTime(1000),
             // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
             map((s: IrobotState) => this.moveCar(s))
         )
