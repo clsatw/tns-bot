@@ -14,5 +14,5 @@ tns build android
      http://ajoan.com/moveCar?devId=xxxx&payload=50,10,0,0
 
 
-   
+   $ tns resources generate icons <Path to image>	Generate all icons for Android and iOS based on the specified image
 
