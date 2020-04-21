@@ -41,6 +41,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
 
+    getDevId(): void {
+        this.mqtt.sub('devId').subscribe(data => {
+            this.devId = data;
+            // console.log('devId: ', this.devId);
+            // dialogs.alert(this.devId);
+        });
+    }
+
     moveCar(s: IrobotState): any {
         // if no return here, it will fire an error at runtime. don't know why?
         // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString()) 
@@ -53,7 +61,6 @@ export class HomeComponent implements OnInit, OnDestroy {
             filter(e => e.action !== 'move'),
             map((e: TouchGestureEventData) => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.FORWARD })
             )),
-
         this.btnB$.pipe(
             filter(e => e.action !== 'move'),
             map((e: TouchGestureEventData) => e.action === 'up' ? ({ direction: cmdEnum.STOP }) : ({ direction: cmdEnum.BACK })
@@ -75,7 +82,12 @@ export class HomeComponent implements OnInit, OnDestroy {
             map(n => ({ speed: n }))
         ),
 
-        this.disToWall$.pipe(inputToValue(), map(n => ({ disToWall: n }))),
+        this.disToWall$.pipe(
+            filter(n => n !== undefined),
+            inputToValue(),
+            map(n => ({ disToWall: n }))
+        ),
+
         this.autoPilot$.pipe(
             // don't know how to send true or false in http request, so i use 0 and 1
             map(n => ({ autoPilot: n ? 1 : 0 })))
@@ -105,9 +117,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     )
     // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
     speed$: Observable<any> = this.robotState$.pipe(selectDistinctState('speed')).pipe(debounceTime(1000));
-
+    obstacleDistance$: Observable<any> = this.robotState$.pipe(selectDistinctState('disToWall')).pipe(debounceTime(1000));    
     // any of the observables emits a vaule, group the latest change together
-    navigation$ = combineLatest(this.direction$, this.navMode$, this.speed$)
+    navigation$ = combineLatest(this.direction$, this.navMode$, this.obstacleDistance$, this.speed$)
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
@@ -141,12 +153,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         // this.robotCommands$.subscribe(console.log);  
         // start to receive commands  
-        this.mqtt.sub('devId').subscribe(data => {
-            this.devId = data;
-            // console.log('devId: ', this.devId);
-            // dialogs.alert(this.devId);
-        });
-
+        this.getDevId();
         this.robotState$.subscribe();
         // this.navMode$.subscribe(console.log);
     }

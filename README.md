@@ -8,6 +8,8 @@ tns build android
 
 1. apt-get install mosquitto on the linux box
 2. sudo service mosquitto restart
+    sudo service mosquitto stop
+    sudo mosquitto -v   // for debugging
 3. turn to use node mqtt to publish msg by adding mqtt codes in server.js
 4. test on browser: 
     upload codes to nodemcu

@@ -1,6 +1,10 @@
 <Page class='page'>
     <Page.actionBar>
-        <ActionBar class='action-bar' title="Device ID: {{devId}}"></ActionBar>
+        <ActionBar class='action-bar' title="小車識別碼: {{devId}}">            
+            <ActionItem tap="getDevId" text="與小車連綫" 
+            ios.systemIcon="16" ios.position="right"
+            android.position="popup"></ActionItem>
+        </ActionBar>
     </Page.actionBar>
     <ScrollView>
         <StackLayout verticalAlignment='center' horizontalAlignment='center'>
@@ -18,7 +22,7 @@
 
             <label textAlignment='center' textWrap='true' text='離障礙物最短距離'
                 class='text-primary h3 description-label'></label>
-            <Slider (valueChange)="disToWall$.next($event)" value="10" minValue="10" maxValue="200" class='slider'>
+            <Slider (valueChange)="disToWall$.next($event)" value="10" minValue="10" maxValue="100" class='slider'>
             </Slider>
             <label textAlignment='center' textWrap='true' text='速度' class='h3 description-label'></label>
             <Slider (valueChange)="inputSpeed$.next($event)" value="50" minValue="10" maxValue="255"></Slider>
