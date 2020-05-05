@@ -91,46 +91,40 @@ var HomeComponent = /** @class */ (function () {
         this.inputSpeed$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         this.disToWall$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         this.autoPilot$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-        // when tap on button, there a down, many move... an up events.
-        this.robotCommands$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(
-        // this.btnS$.pipe( map(e => ({ direction: cmdEnum.STOP }))),
-        this.btnF$.pipe(
+        // when tap on button, a down, many move... an up events trigged.
+        this.robotCommands$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["merge"])(this.btnF$.pipe(
         // e.action: move, cancel down, up.
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 1 /* FORWARD */ }); })), this.btnB$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 2 /* BACK */ }); })), this.btnL$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 4 /* LEFT */ }); })), this.btnR$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 3 /* RIGHT */ }); })), 
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 1 /* FORWARD */ }); })), this.btnB$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 2 /* BACK */ }); })), this.btnL$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 4 /* LEFT */ }); })), this.btnR$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e.action !== 'move'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (e) { return e.action === 'up' ? ({ direction: 0 /* STOP */ }) : ({ direction: 3 /* RIGHT */ }); })),
         // car speed (0-255)
         this.inputSpeed$.pipe(
         //tap(console.log),
         // tap(n => console.log('speed: ' + n))),
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (n) { return n !== undefined; }), Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["inputToValue"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (n) { return ({ speed: n }); })), this.disToWall$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["inputToValue"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (n) { return ({ disToWall: n }); })), this.autoPilot$.pipe(
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (n) { return n !== undefined; }), Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["inputToValue"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (n) { return ({ speed: n }); })), this.disToWall$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (n) { return n !== undefined; }), Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["inputToValue"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (n) { return ({ disToWall: n }); })), this.autoPilot$.pipe(
         // don't know how to send true or false in http request, so i use 0 and 1
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (n) { return ({ autoPilot: n ? 1 : 0 }); })));
         this.robotState$ = this.robotCommands$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["startWith"])(this.initialRobotState), 
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["startWith"])(this.initialRobotState),
         // ** touch event 'move' keeps being fired as long as not releasing.
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["scan"])(function (state, command) {
             return (__assign({}, state, command));
-        }), 
+        }),
         // distinctUntilChanged(),
         // distinctUntilChanged((prev: IrobotState, curr: IrobotState) => prev.direction === curr.direction),
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])(1));
         this.navMode$ = this.robotState$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["selectDistinctState"])('autoPilot'));
-        this.direction$ = this.robotState$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["selectDistinctState"])('direction'), 
-        // filter out any direction emissions if autopilot is on
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["withLatestFrom"])(this.navMode$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (_a) {
-            var dir = _a[0], nav = _a[1];
-            return nav === 0;
-        }));
+        this.direction$ = this.robotState$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["selectDistinctState"])('direction'));
         // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
         this.speed$ = this.robotState$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["selectDistinctState"])('speed')).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(1000));
+        this.obstacleDistance$ = this.robotState$.pipe(Object(_operators_selectDistinctState__WEBPACK_IMPORTED_MODULE_3__["selectDistinctState"])('disToWall')).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(1000));
         // any of the observables emits a vaule, group the latest change together
-        this.navigation$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["combineLatest"])(this.direction$, this.navMode$, this.speed$)
+        this.navigation$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["combineLatest"])(this.direction$, this.navMode$, this.obstacleDistance$, this.speed$)
             .pipe(
         // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["withLatestFrom"])(this.robotState$, function (_, s) { return s; }), 
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["withLatestFrom"])(this.robotState$, function (_, s) { return s; }),
         // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed.
         // tap( console.log('s.direction') ),
         // debounce is to prevent sneding stop right after direction cmd if slightly touch
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(100), 
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(100),
         // switchmap is only for switching obs$ to another obs$. whereas in here s isn't obs$
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (s) { return _this.moveCar(s); }));
         // this.robotState$.subscribe(console.log);
@@ -151,6 +145,14 @@ var HomeComponent = /** @class */ (function () {
     }
     // @ViewChild('btnF', { static: true }) btnF: ElementRef;
     // @ViewChild('btnL', { static: true }) btnL: ElementRef;
+    HomeComponent.prototype.getDevId = function () {
+        var _this = this;
+        this.mqtt.sub('devId').subscribe(function (data) {
+            _this.devId = data;
+            // console.log('devId: ', this.devId);
+            // dialogs.alert(this.devId);
+        });
+    };
     HomeComponent.prototype.moveCar = function (s) {
         // if no return here, it will fire an error at runtime. don't know why?
         // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
@@ -291,7 +293,7 @@ const filterOdd = (src$: Observable<any>)=>{
         )
     })
 }
-*/ 
+*/
 
 
 /***/ }),
@@ -308,13 +310,13 @@ var Config = /** @class */ (function () {
     }
     // static apiUrl = "https://api.thingspeak.com/";
     // static apiKey = "GU3T2CVVHXRZUWHQ";
-    // static apiUrl = 'https://cloud.arest.io';  
+    // static apiUrl = 'https://cloud.arest.io';
     Config.apiUrl = 'http://ajoan.com';
-    Config.deviceId = '107929'; // the car's id registerd in arest website   
+    Config.deviceId = '107929'; // the car's id registerd in arest website
     return Config;
 }());
 
-// private apiKey = '1obqzch8x3e7e626';  
+// private apiKey = '1obqzch8x3e7e626';
 // private url = 'https://cloud.arest.io;'
 // e.g., https://cloud.arest.io/${devId}/forward
 
