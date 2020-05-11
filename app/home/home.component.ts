@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     robotState$: Observable<IrobotState> = this.robotCommands$
         .pipe(
             startWith(this.initialRobotState),
-            // ** touch event 'move' keeps being fired as long as not releasing.           
+            // ** touch event 'move' keeps being fired as long as not releasing.
             scan((state: IrobotState, command) => {
                 return ({ ...state, ...command });
             }),
@@ -112,21 +112,21 @@ export class HomeComponent implements OnInit, OnDestroy {
         selectDistinctState('direction'),
         // filter out any direction emissions if autopilot is truned on
         /* actually i use isEnabled in html to disable buttons, so below 2 lines aren't needed
-        ** but just for reference 
+        ** but just for reference
         */
-        // withLatestFrom(this.navMode$), 
-        // filter(([dir, nav])=>nav===0)      
+        // withLatestFrom(this.navMode$),
+        // filter(([dir, nav])=>nav===0)
     )
     // ** discard emitted values that take < 1s coz inputvalue keeps firing when sliding on slider.
     speed$: Observable<any> = this.robotState$.pipe(selectDistinctState('speed')).pipe(debounceTime(1000));
-    obstacleDistance$: Observable<any> = this.robotState$.pipe(selectDistinctState('disToWall')).pipe(debounceTime(1000));    
+    obstacleDistance$: Observable<any> = this.robotState$.pipe(selectDistinctState('disToWall')).pipe(debounceTime(1000));
     // any of the observables emits a vaule, group the latest change together
     navigation$ = combineLatest(this.direction$, this.navMode$, this.obstacleDistance$, this.speed$)
         .pipe(
             // withLatestFrom takes 2 obs$, in this case we ignore 1st one(direction$), and take state$ only
             withLatestFrom(this.robotState$, (_, s) => s),
 
-            // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed. 
+            // replace tap w/ exhaustMap so any coming direction event will be ignore if moveCar isn't completed.
             // tap( console.log('s.direction') ),
             // debounce is to prevent sneding stop right after direction cmd if slightly touch
             debounceTime(100),
@@ -136,7 +136,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     constructor(private mqtt: MqttProvider) {
         // this.robotState$.subscribe(console.log);
-        // this.direction$.subscribe(console.log);       
+        // this.direction$.subscribe(console.log);
         // ** this console.log shows everything!
         this.navSubscription = this.navigation$.subscribe((res: number) => {
             // see if init http request successfully.
@@ -147,14 +147,14 @@ export class HomeComponent implements OnInit, OnDestroy {
                     console.log("Dialog closed!");
                 });
                 // alert(res.message+res.id);
-            } 
+            }
             */
         })
     }
 
     ngOnInit(): void {
-        // this.robotCommands$.subscribe(console.log);  
-        // start to receive commands  
+        // this.robotCommands$.subscribe(console.log);
+        // start to receive commands
         this.getDevId();
         this.robotState$.subscribe();
         // this.navMode$.subscribe(console.log);
