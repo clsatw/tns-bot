@@ -21,12 +21,13 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
 export class HomeComponent implements OnInit, OnDestroy {
     navSubscription: Subscription;
     errorMessage = 'Wifi 遙控車';
-    devId = '';
+    // devId = '';
     initialRobotState: IrobotState = {
         direction: cmdEnum.STOP,
         speed: 50,
         disToWall: 10,
-        autoPilot: 0
+        autoPilot: false,
+        devId:''
     }
     // last event is always up, so this is filtered by distinctUntilChange operator.
     // btnS$ = new Subject<TouchGestureEventData>();
@@ -43,7 +44,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     getDevId(): void {
         this.mqtt.sub('devId').subscribe(data => {
-            this.devId = data;
+            // this.devId = data;
+            this.initialRobotState.devId = data;
             // console.log('devId: ', this.devId);
             // dialogs.alert(this.devId);
         });
@@ -52,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     moveCar(s: IrobotState): any {
         // if no return here, it will fire an error at runtime. don't know why?
         // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString()) 
-        return this.mqtt.publish('moveCar', this.devId, s);
+        return this.mqtt.publish('moveCar', s);
     }
     // when tap on button, a down, many move... an up events trigged.
     robotCommands$ = merge(

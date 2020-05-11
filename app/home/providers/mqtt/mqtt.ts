@@ -18,15 +18,34 @@ export class MqttProvider {
   // URLs are strings and all values in a URL are strings. When you see i=0 in a URL, 0 is a string.
   // When you see b=true, true is a string. When you see s=, the value is an empty string.
   // publish(fnName: string, s: IrobotState): Observable<any> {
-  publish(topic: string, devId: string, s: IrobotState): any {
-    // const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
-    const url = `${Config.apiUrl}/${topic}?devId=${devId}&payload=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+  publish(topic: string, s: IrobotState): any {    
+    // const url = `${Config.apiUrl}/${topic}?devId=${devId}&payload=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+    const url = `${Config.apiUrl}/${topic}`;
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
     // convert promise to obserable via from
-    return from(request({ url: url, method: "GET" }))
-      .pipe(map((res: HttpResponse) => res.statusCode));
+    //return from(request({ url: url, method: "GET" }))
+    //  .pipe(map((res: HttpResponse) => res.statusCode));
+
+    return from(
+      request({
+        url: url,
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // this is to convert obj to json doc
+        content: JSON.stringify({
+          speed: s.speed,
+          dir: s.direction,
+          devId: s.devId,
+          dist2Wall: s.disToWall,
+          autoPilot: s.autoPilot
+        })
+      }).then((response) => {
+        const result = response.content.toJSON();
+      }, (e) => {
+      })
+    )
 
     /*
     return this.http.get(url).pipe(
