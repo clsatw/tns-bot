@@ -27,3 +27,4 @@ ios:
     getting signing profile and certificate in xcode.
    $ tns resources generate icons <Path to image>	Generate all icons for Android and iOS based on the specified image
 
+   tns resources generate splashes e:\1\l.png --background "#99d9ea"
