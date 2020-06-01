@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     moveCar(s: IrobotState): any {
         // if no return here, it will fire an error at runtime. don't know why?
-        // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString()) 
+        // return this.mqtt.callArest(s.autoPilot === true ? cmdEnum.AUTO : s.direction, s.speed.toString())
         return this.mqtt.publish('moveCar', s);
     }
     // when tap on button, a down, many move... an up events trigged.
@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         this.autoPilot$.pipe(
             // don't know how to send true or false in http request, so i use 0 and 1
-            map(n => ({ autoPilot: n ? 1 : 0 })))
+            map(n => ({ autoPilot: n ? true : false })))
     )
 
     robotState$: Observable<IrobotState> = this.robotCommands$

@@ -41,3 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 /platforms/*
+platforms/android/app/src/main/assets/app/bundle.js
+platforms/android/app/src/main/assets/app/runtime.js
+platforms/android/app/src/main/assets/app/vendor.js
+platforms/android/app/src/main/assets/app/0.js
+platforms/android/.nsprepareinfo
