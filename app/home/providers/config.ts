@@ -4,8 +4,8 @@ export class Config {
     // static apiKey = "GU3T2CVVHXRZUWHQ";
 
     // static apiUrl = 'https://cloud.arest.io';  
-    static apiUrl = 'http://ajoan.com';  
-    static deviceId = '107929'; // the car's id registerd in arest website   
+    static apiUrl = 'https://ajoan.com';  
+    static deviceId = ''; 
   }
 
   // private apiKey = '1obqzch8x3e7e626';  

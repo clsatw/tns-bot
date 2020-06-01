@@ -1,10 +1,14 @@
+
 # tns-bot // git repository
 tns roachbot
 at cmd prompt, tns preview
 
 git version 2 works - 10/24/2019
 
-tns build android
+#change history:
+    5/20/2020   mqtt.ts - change http to https for api calls
+    
+tns deplpy android
 
 1. apt-get install mosquitto on the linux box
 2. sudo service mosquitto restart
@@ -27,3 +31,4 @@ ios:
     getting signing profile and certificate in xcode.
    $ tns resources generate icons <Path to image>	Generate all icons for Android and iOS based on the specified image
 
+   tns resources generate splashes e:\1\l.png --background "#99d9ea"
