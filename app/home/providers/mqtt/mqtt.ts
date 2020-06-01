@@ -19,14 +19,33 @@ export class MqttProvider {
   // When you see b=true, true is a string. When you see s=, the value is an empty string.
   // publish(fnName: string, s: IrobotState): Observable<any> {
   publish(topic: string, devId: string, s: IrobotState): any {
-    // const url = `${Config.apiUrl}/${Config.deviceId}/${fnName}?params=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
-    const url = `${Config.apiUrl}/${topic}?devId=${devId}&payload=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+    // const url = `${Config.apiUrl}/${topic}?devId=${devId}&payload=${s.speed.toString()},${s.disToWall.toString()},${s.direction.toString()},${s.autoPilot.toString()}`;
+    const url = `${Config.apiUrl}/${topic}`;
     console.log(url);
     // this.msg = fnName; // for css
     // return this.http.get(`${Config.apiUrl}/${Config.deviceId}/${fnName}?key=${Config.apiKey}`)
     // convert promise to obserable via from
-    return from(request({ url: url, method: "GET" }))
+    /*
+     return from(request({ url: url, method: "GET" }))
       .pipe(map((res: HttpResponse) => res.statusCode));
+    */
+    return from(
+      request({
+        url: url,
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        content: JSON.stringify({
+          devId: devId,
+          speed: s.speed,
+          autoPilot: s.autoPilot,
+          disToWall: s.disToWall,
+          direction: s.direction
+        })
+      }).then((response) => {
+        const result = response.content.toJSON();
+      }, (e) => {
+      })
+    )
 
     /*
     return this.http.get(url).pipe(
@@ -51,12 +70,12 @@ export class MqttProvider {
   /*
     private handleError(error: HttpErrorResponse) {
       let errorMessage = '';
-  
+
       errorMessage = `Error: ${error.error.message}`;
-  
+
       // server-side error
       errorMessage = errorMessage + `Error Code: ${error.status}\nMessage: ${error.message}`;
-  
+
       // window.alert(errorMessage);
       return throwError(errorMessage);
     }
